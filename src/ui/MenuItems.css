@@ -1,0 +1,19 @@
+
+
+.motion-span-bg{
+    background-color: var(--grid-bg-effect);
+}
+
+.add-to-cart{
+    background-color: var(--color-brand-700);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart:hover{
+    background-color: var(--color-brand-600);
+}
+
+.item-text{
+    color: var(--color-grey-50);
+}

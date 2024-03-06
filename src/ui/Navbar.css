@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+
+.font-nav{
+  font-family: "Lato", 'sans-serif';
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--color-brand-600);
+}
+
+html {
+  height: 100%;
+  background: #223;
+  display: grid;
+  place-items: center;
+}
+
+html {
+  height: 100%;
+  background: #223;
+  display: grid;
+  place-items: center;
+}
+
+/* .nav-box-animate {
+  width: 60vmin;
+  height: 50vmin;
+  display: grid;
+  place-content: center;
+  color: white;
+  text-shadow: 0 1px 0 #000;
+  --border-angle: 0turn;
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #213,
+    #112 5%,
+    #112 60%,
+    #213 95%
+  );
+  border: solid 5px transparent;
+  border-radius: 2em;
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    transparent 25%,
+    #08f,
+    #f03 99%,
+    transparent
+  );
+  background: var(--main-bg) padding-box, var(--gradient-border) border-box, var(--main-bg) border-box;
+  background-position: center center;
+  -webkit-animation: bg-spin 3s linear infinite;
+          animation: bg-spin 3s linear infinite;
+}
+@-webkit-keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+.box:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+} */
+
+
+/* @import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+
+.nav-box-animate {
+	font-family: Raleway, sans-serif;
+	text-align: center;
+	background-color: transparent;
+	color: var(--color-grey-50);
+	border: 0.3rem solid transparent;
+  overflow: hidden;
+	padding: 0.8vw;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear infinite forwards;
+}
+
+
+
+:root {
+	--d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: var(--color-brand-500);
+	--c2: rgba(168, 239, 255, 0.1);
+}
+
+.wrapper {
+	min-width: min(40rem, 100%);
+}
+
+
+
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
+} */
+
+
+@keyframes bg {
+  0% {
+      background-size:    0 3px,
+                          3px 0,
+                          0 3px,
+                          3px 0;
+  }
+  25% {
+      background-size:    100% 3px,
+                          3px 0,
+                          0 3px,
+                          3px 0;
+  }
+  50% {
+      background-size:    100% 3px,
+                          3px 100%,
+                          0 3px,
+                          3px 0;
+  }
+  75% {
+      background-size:    100% 3px,
+                          3px 100%,
+                          100% 3px,
+                          3px 0;
+  }
+  100% {
+      background-size:    100% 3px,
+                          3px 100%,
+                          100% 3px,
+                          3px 100%;
+  }
+}
+
+@keyframes bg-reverse {
+  0% {
+    background-size: 100% 3px, 3px 100%, 100% 3px, 3px 100%;
+  }
+  12.5% {
+    background-size: 100% 3px, 3px 100%, 100% 3px, 3px 0;
+  }
+  25% {
+    background-size: 100% 3px, 3px 100%, 0 3px, 3px 0;
+  }
+  37.5% {
+    background-size: 100% 3px, 3px 0, 0 3px, 3px 0;
+  }
+  50% {
+    background-size: 0 3px, 3px 0, 0 3px, 3px 0;
+  }
+  62.5%{
+    background-size: 100% 3px, 3px 0, 0 3px, 3px 0;
+  }
+  75%{
+    background-size: 100% 3px, 3px 100%, 0 3px, 3px 0;
+  }
+  87.5%{
+    background-size: 100% 3px, 3px 100%, 100% 3px, 3px 0;
+  }
+  100%{
+    
+  }
+
+}
+
+
+.nav-box-animate {
+  background-repeat: no-repeat;
+}
+.nav-box-animate:hover {
+  background-image:   linear-gradient(to right, var(--color-brand-500) 100%, var(--color-brand-500) 100%),
+  linear-gradient(to bottom, var(--color-brand-500) 100%, var(--color-brand-500) 100%),
+  linear-gradient(to right, var(--color-brand-500) 100%, var(--color-brand-500) 100%),
+  linear-gradient(to bottom, var(--color-brand-500) 100%, var(--color-brand-500) 100%);
+background-size:    100% 3px,
+  3px 100%,
+  100% 3px,
+  3px 100%;
+background-position:    0 0,
+      100% 0,
+      100% 100%,
+      0 100%;
+animation: bg 1.25s cubic-bezier(0.19, 1, 0.22, 1), forwards 
+
+}
