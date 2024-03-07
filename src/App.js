@@ -9,6 +9,7 @@ import Menu from "./pages/Menu";
 import SignupForm from "./features/authentication/SignUpForm";
 import SigninForm from "./features/authentication/SignInForm";
 import Cart from "./features/cart/Cart";
+import { DarkModeContextProvider } from "./contexts/DarkmodeContext";
 
 
 const queryClient = new QueryClient({
@@ -24,15 +25,17 @@ function App() {
   
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}  />
-          <Route path = '/menu' element={<Menu />}  />
-          <Route path="/signUp" element={<SignupForm />} />
-          <Route path="/signIn" element={<SigninForm />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </BrowserRouter> 
+        <DarkModeContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />}  />
+              <Route path = '/menu' element={<Menu />}  />
+              <Route path="/signUp" element={<SignupForm />} />
+              <Route path="/signIn" element={<SigninForm />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </BrowserRouter> 
+        </DarkModeContextProvider>
     </QueryClientProvider>
   );
 }

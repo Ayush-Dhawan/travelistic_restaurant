@@ -14,7 +14,7 @@ const item = {
 export default function Cart() {
   return (
     <div className='h-screen w-screen'>
-          <div className='m-3 md:m-40'>
+          <div className='m-3 md:m-40 w-[90%] md:w-[70%]'>
           <div className=' h-80vh  w-full '>
     <NavLink to="/menu"><Button isAnimated={true} color="indigo">&larr; Back to menu</Button></NavLink>
 
@@ -25,7 +25,7 @@ export default function Cart() {
         <li><CartItem item={item}/></li>
        </ul>
 
-      <div className='mt-6 space-x-4  flex gap-5'>
+      <div className='mt-6 space-x-4 flex flex-col md:flex-row gap-5'>
         <Button isAnimated={true} color="indigo">Order pizzas</Button>
         <Button isAnimated={true} color={'gray'} >
           Clear cart

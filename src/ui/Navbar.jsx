@@ -3,8 +3,12 @@ import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
+import { IoSunnyOutline } from "react-icons/io5";
+import { useDarkModeContext } from '../contexts/DarkmodeContext';
+import { BsMoon } from "react-icons/bs";
 
 function Navbar() {
+  const {isDarkMode, toggleDarkMode} = useDarkModeContext();
   return (
     <nav className='flex items-center justify-around font-semibold text-xl font-nav'>
         <img src='/myLogo-dark.png' alt='logo' height={120} width={120} />
@@ -15,9 +19,10 @@ function Navbar() {
             </div>
       </div>
       <div className='flex gap-5'>
-      <NavLink to='/cart'><BsCart3 size={'1.5em'} /></NavLink>
-      <NavLink to="/signUp"><FaRegUser size={'1.5em'} /></NavLink>
-      </div>
+      <NavLink to='/cart'><BsCart3 size={'1.25em'} /></NavLink>
+      <NavLink to="/signUp"><FaRegUser size={'1.25em'} /></NavLink>
+      <NavLink onClick={toggleDarkMode} to="#">{isDarkMode ? <IoSunnyOutline size={'1.75rem'} /> : <BsMoon size="1.75rem" />}</NavLink>
+      </div>  
     </nav>
   )
 }

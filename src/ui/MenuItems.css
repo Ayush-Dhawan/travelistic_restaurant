@@ -17,3 +17,8 @@
 .item-text{
     color: var(--color-grey-50);
 }
+
+.shadow-custom-md {
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+  }
+  

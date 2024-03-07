@@ -1,0 +1,33 @@
+.styled-filter {
+    border: 1px solid var(--color-grey-100);
+    background-color: var(--color-grey-800);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.4rem;
+    /* margin-bottom: -10%; */
+  }
+  
+  .filter-button {
+    background-color: var(--color-grey-900);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    transition: all 0.3s;
+  }
+  
+  .filter-button.active {
+    background-color: var(--color-brand-600);
+    color: var(--color-brand-50);
+    cursor: not-allowed;
+  }
+  
+  .filter-button:hover:not(:disabled) {
+    background-color: var(--color-brand-600);
+    color: var(--color-brand-50);
+  }
+  

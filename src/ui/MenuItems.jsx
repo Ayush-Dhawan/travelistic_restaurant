@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import './MenuItems.css'
 
-const MenuItems = ({ items, className }) => {
+const MenuItems = ({ items, className, search }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
@@ -12,7 +12,7 @@ const MenuItems = ({ items, className }) => {
     {/* <h2 className="font-bold text-3xl ml-5">Menu</h2> */}
     <div className="flex flex-col items-center justify-between w-screen">
       <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 ", className)}>
-        {items?.map((item, idx) => (
+        {items?.filter(item => search.toLowerCase() === '' ? item : item.dishName.toLowerCase().includes(search) )?.map((item, idx) => (
           <div
           key={item?.id}
             className="relative group block p-2 h-full w-[100%]"
@@ -36,7 +36,7 @@ const MenuItems = ({ items, className }) => {
                 />
               )}
             </AnimatePresence>
-            <Card className="w-full border-[#4f46e5] ">
+            <Card className="w-full shadow-custom-md border-none">
               <div className="flex flex-col items-center justify-between h-[60vh]">
                 <CardTitle><span style={{ color: item?.category === "VEG" ? '#28b485' : '#f06464' }}>{item?.dishName}</span></CardTitle>
                 {/* <img src={item?.image} height={300} width={300} /> */}

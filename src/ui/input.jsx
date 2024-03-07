@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import  cn  from "../utils/cn";
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
 
-const Input = React.forwardRef(({ className, type, ...props }, ref) => {
+const Input = React.forwardRef(({ className, type, onChange,  ...props }, ref) => {
   const radius = 100; // change this to increase the radius of the hover effect
   const [visible, setVisible] = useState(false);
 
@@ -35,6 +35,7 @@ const Input = React.forwardRef(({ className, type, ...props }, ref) => {
     >
       <input
         type={type}
+        onChange={onChange}
         className={cn(
           `flex h-10 w-full border-none bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 
           file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600 
