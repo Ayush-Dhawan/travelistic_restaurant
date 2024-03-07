@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import SignupForm from "./features/authentication/SignUpForm";
 import SigninForm from "./features/authentication/SignInForm";
+import Cart from "./features/cart/Cart";
 
 
 const queryClient = new QueryClient({
@@ -29,6 +30,7 @@ function App() {
           <Route path = '/menu' element={<Menu />}  />
           <Route path="/signUp" element={<SignupForm />} />
           <Route path="/signIn" element={<SigninForm />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter> 
     </QueryClientProvider>

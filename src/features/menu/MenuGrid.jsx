@@ -1,10 +1,11 @@
 import React from 'react'
 import { MenuItems } from '../../ui/MenuItems';
 import useMenu from './useMenu';
+import Spinner from '../../ui/Spinner';
 
 export default function MenuGrid() {
   const {menuList, isLoading} = useMenu();
-
+  if(isLoading) return <div className='h-screen w-screen'><Spinner /></div>
   return (
     <main>
     <div className="h-screen w-screen ">

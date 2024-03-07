@@ -8,6 +8,8 @@ const MenuItems = ({ items, className }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
+    <>
+    {/* <h2 className="font-bold text-3xl ml-5">Menu</h2> */}
     <div className="flex flex-col items-center justify-between w-screen">
       <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 ", className)}>
         {items?.map((item, idx) => (
@@ -50,6 +52,7 @@ const MenuItems = ({ items, className }) => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

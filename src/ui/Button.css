@@ -1,0 +1,125 @@
+.button {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 38px;
+    border-radius: 100px;
+    transition: all 0.2s;
+    position: relative;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .button-animated {
+    animation: moveInBottom 1s ease-out 0.5s;
+    animation-fill-mode: backwards;
+  }
+  
+  .button:hover,
+  .button:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+  
+  .button-white {
+    background-color: white;
+    color: #777;
+  }
+  
+  .button-white::after {
+    background-color: white;
+  }
+
+  .button-indigo {
+    background-color: var(--grid-bg-effect);
+    color: rgb(186, 182, 182);
+  }
+  
+  .button-indigo::after {
+    background-color: var(--grid-bg-effect);
+  }
+
+  .button-red{
+    background-color: #f06464;
+    color: rgb(72, 71, 71);
+  }
+
+  .button-red::after{
+    background-color: #f06464;
+  }
+
+  .button-gray {
+    background-color: var(--color-gray-btn);
+    color: #f4e9e9;
+  }
+  
+  .button-gray::after {
+    background-color: var(--color-gray-btn);
+  }
+
+
+
+  
+  .button-theme-light {
+    background-color: var(--color-indigo-100);
+    color: white;
+  }
+  
+  .button-theme-light::after {
+    background-color: var(--color-indigo-100);
+  }
+  
+  .button:hover::after {
+    transform: scaleX(1.3) scaleY(1.6);
+    opacity: 0;
+  }
+  
+  .button-text {
+    color: var(--color-theme-medium);
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-theme-medium);
+    padding: 3px;
+    transition: all 0.2s;
+  }
+  
+  .button-text:hover {
+    transform: translateY(-3px);
+    background-color: var(--color-indigo-100);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button-text:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  @keyframes moveInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  

@@ -51,7 +51,7 @@
   --image-opacity: 100%;
   }
   
-    &, &.dark-mode {
+    &,&.dark-mode {
 
     --color-grey-0: #fff;
     --color-grey-50: #f9fafb;
@@ -102,6 +102,8 @@
   --color-brand-700: #4338ca;
   --color-brand-800: #3730a3;
   --color-brand-900: #312e81;
+
+  --color-gray-btn: #374151;
   
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;

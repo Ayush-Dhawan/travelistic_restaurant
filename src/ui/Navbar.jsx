@@ -15,7 +15,7 @@ function Navbar() {
             </div>
       </div>
       <div className='flex gap-5'>
-      <NavLink to={'#'}><BsCart3 size={'1.5em'} /></NavLink>
+      <NavLink to='/cart'><BsCart3 size={'1.5em'} /></NavLink>
       <NavLink to="/signUp"><FaRegUser size={'1.5em'} /></NavLink>
       </div>
     </nav>
