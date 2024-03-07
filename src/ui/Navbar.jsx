@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { BsCart3 } from "react-icons/bs";
+import { FaRegUser } from "react-icons/fa";
 
 function Navbar() {
   return (
@@ -13,7 +14,10 @@ function Navbar() {
                     <NavLink to={'/menu'}>Menu</NavLink>
             </div>
       </div>
-      <NavLink to={'#'}><BsCart3 size={'2em'} /></NavLink>
+      <div className='flex gap-5'>
+      <NavLink to={'#'}><BsCart3 size={'1.5em'} /></NavLink>
+      <NavLink to="/signUp"><FaRegUser size={'1.5em'} /></NavLink>
+      </div>
     </nav>
   )
 }
