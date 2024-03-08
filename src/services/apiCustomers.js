@@ -26,6 +26,14 @@ export async function getIdbyEmail(email){
     .single();
     return Number(data.id)
 }
+export async function getAddressbyEmail(email){
+  let { data, error } = await supabase
+  .from('restaurant-users')
+  .select('address')
+  .eq('email', email)
+  .single();
+  return data.address;
+}
 
 export async function getNamebyEmail(email){
   let { data, error } = await supabase
@@ -74,4 +82,19 @@ export async function insertCustomer({fullName, email, address, password}){
   }
   return data
 
+}
+
+
+export async function updateCustomer({fullName, email, address}){
+  
+    const { data, error } = await supabase
+    .from('restaurant-users')
+    .update({ fullName: fullName, address: address })
+    .eq('email', email)
+    .select()
+    if (error) {
+      console.error(error);
+      throw new Error("Customer could not be updated");
+    }
+    return data;
 }

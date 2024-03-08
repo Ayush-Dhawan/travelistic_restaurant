@@ -3,16 +3,22 @@ import { AnimatePresence, motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import './MenuItems.css'
+import MenuTableOperations from "../features/menu/MenuTableOperations";
 
-const MenuItems = ({ items, className, search }) => {
+const MenuItems = ({ items, className, search, setSearch }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  let searchedList;
 
+  if(search !== '') searchedList = items?.filter(item => search.toLowerCase() === '' ? item : item.dishName.toLowerCase().includes(search) )
+  else searchedList = items;
+
+  if(searchedList.length === 0)return <div className='h-screen w-screen'> <div className='text-md font-semibold text-center m-[2rem]'>No data to show at the moment</div></div>
   return (
     <>
     {/* <h2 className="font-bold text-3xl ml-5">Menu</h2> */}
     <div className="flex flex-col items-center justify-between w-screen">
       <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 ", className)}>
-        {items?.filter(item => search.toLowerCase() === '' ? item : item.dishName.toLowerCase().includes(search) )?.map((item, idx) => (
+        {searchedList?.map((item, idx) => (
           <div
           key={item?.id}
             className="relative group block p-2 h-full w-[100%]"

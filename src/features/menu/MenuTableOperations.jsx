@@ -30,7 +30,7 @@ export default function MenuTableOperations({setSearch}) {
     <TableOperations>
       <Filter field="category" options={filterOptions} setSearch={setSearch} />
       <Filter field="type" options={filterOptions2} setSearch={setSearch} />
-      <Input type="text" className={`${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} p-5 w-[20vw] text-gray-500`} placeholder="Looking for something?" onChange={(e) => setSearch(e.target.value)} ></Input>
+      <Input type="text" className={`${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} p-5 w-[90vw] md:w-[20vw] text-gray-500`} placeholder="Looking for something?" onChange={(e) => setSearch(e.target.value)} ></Input>
     </TableOperations>
   )
 }

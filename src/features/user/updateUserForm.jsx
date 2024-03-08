@@ -7,38 +7,45 @@ import { NavLink } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
 import bcrypt from 'bcryptjs'
 import useGetUser from '../../hooks/useGetUser';
-import { getAddressbyEmail, getNamebyEmail, getPasswordbyEmail } from '../../services/apiCustomers';
+import { getPasswordbyEmail } from '../../services/apiCustomers';
 import {useDispatch} from 'react-redux'
 import { updateUser } from '../user/userSlice';
+import {useSelector} from 'react-redux'
+import UpdateUserDatabase from './updateUserDatabase';
 
 
 // Define the SignupFormDemo component
-function SigninForm() {
+function UpdateUserForm() {
   // Define the submit handler function
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {updateUserDB, isLoading} = UpdateUserDatabase();
+
+  const email = useSelector(state => state.user.email);
+  const name = useSelector(state => state.user.username);
+  const useraddress = useSelector(state => state.user.address);
+  console.log("name: ", name)
+  console.log('user address: ', useraddress)
+
   const handleSubmit = async (e) => {
    
     e.preventDefault();
 
-
-    const email = e.target.elements.email.value;
     const EnteredPassword = e.target.elements.password.value;
-
+    let new_address = e.target.elements.address.value;
+    let new_name = e.target.elements.fullName.value;
     const password = await getPasswordbyEmail(email);
-
     const isValid = await bcrypt.compare(EnteredPassword, password)
 
+    if(new_address === '') new_address = useraddress
+    if(new_name === '') new_name = name
+
     if(isValid){
-      alert("access granted!")
-      const fullName = await getNamebyEmail(email);
-      const address = await getAddressbyEmail(email);
-      const isLoggedIn = true;
-      console.log(address)
-      dispatch((updateUser({fullName, email, address, isLoggedIn})))
+      dispatch(updateUser({fullName: new_name, email, address: new_address, isLoggedIn: true}))
+      updateUserDB({fullName: new_name, email, address: new_address})
       navigate("/menu")
     }else{
-      alert("wrong credentials")
+      alert("Please enter the valid password!")
     }
     
   };
@@ -48,33 +55,39 @@ function SigninForm() {
     <div className='h-screen w-screen flex items-center justify-center '>
         <div className="w-[26rem] md:w-[30vw]  mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-slate-950 dark:bg-black">
       <h2 className="font-bold text-xl text-[#3730a3]  dark:text-neutral-200 bg-slate-950">
-        Welcome back!
+        Update your information!
       </h2>
 
       <form className="my-8 bg-slate-950 text-white" onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4 bg-slate-950 text-gray-400">
           <Label htmlFor="email"className="bg-slate-950 text-gray-400">Email Address</Label>
-          <Input id="email" className="bg-gray-900 text-gray-500" placeholder="example@gmail.com" type="email" required />
+          <Input id="email" className="bg-gray-900 text-gray-500" placeholder="example@gmail.com" type="email" value={email} disabled />
         </LabelInputContainer>
-       <div className='flex flex-col md:flex-row bg-slate-950'>
+       <div className=' bg-slate-950'>
        <LabelInputContainer className="mb-4 bg-slate-950 text-gray-400">
-          <Label htmlFor="password" className="bg-slate-950 text-gray-400">Password</Label>
-          <Input id="password" className="bg-gray-900 text-gray-500" placeholder="••••••••" type="password" required />
+          <Label htmlFor="fullName" className="bg-slate-950 text-gray-400">Name</Label>
+          <Input id="fullName" className="bg-gray-900 text-gray-500" placeholder={name} type="text" />
         </LabelInputContainer>
-        
+        <LabelInputContainer className="mb-4 bg-slate-950 text-gray-400">
+          <Label htmlFor="address" className="bg-slate-950 text-gray-400">Address</Label>
+          <Input id="address" className="bg-gray-900 text-gray-500" placeholder={useraddress} type="text" />
+        </LabelInputContainer>
+        <LabelInputContainer className="mb-4 bg-slate-950 text-gray-400">
+          <Label htmlFor="address" className="bg-slate-950 text-gray-400">Enter your password to confirm changes</Label>
+          <Input id="password" className="bg-gray-900 text-gray-500" placeholder="••••••••" type="text" />
+        </LabelInputContainer>
        </div>
 
 
         <button
           className="bg-gradient-to-br relative group/btn from-[#312e81]  to-[#6366f1] block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
+          disabled={isLoading}
         >
-          Sign in &rarr;
+          Update information
           <BottomGradient />
         </button>
         <div className="bg-gradient-to-r from-transparent via-[#6366f1] dark:via-neutral-700 to-transparent my-4 h-[1px] w-full" />
-        <center className='bg-slate-950'><NavLink to="/signUp"><span className='bg-slate-950 text-[#6366f1] cursor-pointer'>Do not have an account?</span></NavLink></center>
-
 
       </form>
     </div>
@@ -98,4 +111,4 @@ const LabelInputContainer = ({ children, className }) => {
 };
 
 // Export the SignupFormDemo component
-export default SigninForm;
+export default UpdateUserForm;

@@ -10,6 +10,7 @@ import SignupForm from "./features/authentication/SignUpForm";
 import SigninForm from "./features/authentication/SignInForm";
 import Cart from "./features/cart/Cart";
 import { DarkModeContextProvider } from "./contexts/DarkmodeContext";
+import UpdateUserForm from "./features/user/updateUserForm";
 
 
 const queryClient = new QueryClient({
@@ -22,7 +23,7 @@ const queryClient = new QueryClient({
 })
 
 function App() {
-  
+  const test = false;
   return (
     <QueryClientProvider client={queryClient}>
         <DarkModeContextProvider>
@@ -30,8 +31,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />}  />
               <Route path = '/menu' element={<Menu />}  />
-              <Route path="/signUp" element={<SignupForm />} />
+              <Route path="/signUp" element={ <SignupForm />} />
               <Route path="/signIn" element={<SigninForm />} />
+              <Route path="/settings" element={<UpdateUserForm />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>
           </BrowserRouter> 

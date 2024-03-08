@@ -7,13 +7,17 @@ import { NavLink } from 'react-router-dom';
 import bcrypt from 'bcryptjs'
 import { useAddCustomers } from '../../hooks/useAddCustomers';
 import { doesEmailExist } from '../../services/apiCustomers';
-
+import {useDispatch} from 'react-redux'
+import { updateUser } from '../user/userSlice';
+import {useNavigate} from 'react-router-dom'
  
 
 
 // Define the SignupFormDemo component
 function SignupForm() {
   const {addCustomer, isAddingCustomer} = useAddCustomers();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   // Define the submit handler function
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +36,10 @@ function SignupForm() {
     }
     else if(EnteredPassword === ConfirmedPassword){
       addCustomer({fullName, email, address, password})
+      const isLoggedIn = true;
+      dispatch((updateUser({fullName, email, address, isLoggedIn})))
       alert("added")
+      navigate("/menu")
     }else{
       alert("Password and confirm password fields do not match")
     }
@@ -81,6 +88,7 @@ function SignupForm() {
         <button
           className="bg-gradient-to-br relative group/btn from-[#312e81]  to-[#6366f1] block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
+          disabled={isAddingCustomer}
         >
           Sign up &rarr;
           <BottomGradient />
