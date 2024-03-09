@@ -11,6 +11,9 @@ import SigninForm from "./features/authentication/SignInForm";
 import Cart from "./features/cart/Cart";
 import { DarkModeContextProvider } from "./contexts/DarkmodeContext";
 import UpdateUserForm from "./features/user/updateUserForm";
+import NewOrder from "./pages/NewOrder";
+import OrderDetail from "./features/orders/OrderDetail";
+import OrderHistory from "./features/orders/OrderHistory";
 
 
 const queryClient = new QueryClient({
@@ -35,6 +38,9 @@ function App() {
               <Route path="/signIn" element={<SigninForm />} />
               <Route path="/settings" element={<UpdateUserForm />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/order/new" element={<NewOrder />} />
+              <Route path="/order/:order_id" element={<OrderDetail />} />
+              <Route path="/orderHistory" element={<OrderHistory />} />
             </Routes>
           </BrowserRouter> 
         </DarkModeContextProvider>

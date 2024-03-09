@@ -1,7 +1,7 @@
 import React from 'react'
 import './Cart.css'
 import Button from '../../ui/Button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import { clearCart, decreaseQuantity, deleteItem, getCart, getCurrentQuantityById, getTotalCartPrice, getTotalCartQuantity, increaseQuantity } from './cartSlice';
 import Navbar from '../../ui/Navbar'
@@ -43,7 +43,7 @@ function handleClearCart(){
        <CartOverview />
 
       <div className='mt-6 space-x-4 flex flex-col md:flex-row gap-5'>
-        <Button isAnimated={true} color="indigo">Order pizzas</Button>
+        <Link to='/order/new'><Button isAnimated={true} color="indigo">Order pizzas</Button></Link>
         <Button onClick={handleClearCart} isAnimated={true} color={'gray'} >
           Clear cart
         </Button>
