@@ -17,13 +17,17 @@ import UpdateUserDatabase from './updateUserDatabase';
 // Define the SignupFormDemo component
 function UpdateUserForm() {
   // Define the submit handler function
+  const userStateString = localStorage.getItem("userState");
+  // Parse the JSON string into an object
+  const userState = JSON.parse(userStateString);
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {updateUserDB, isLoading} = UpdateUserDatabase();
 
-  const email = useSelector(state => state.user.email);
-  const name = useSelector(state => state.user.username);
-  const useraddress = useSelector(state => state.user.address);
+  const email = userState?.email;
+  const name = userState?.fullName;
+  const useraddress = userState?.address;
   console.log("name: ", name)
   console.log('user address: ', useraddress)
 

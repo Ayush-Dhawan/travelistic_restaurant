@@ -59,6 +59,7 @@
   .button-red{
     background-color: #f06464;
     color: rgb(72, 71, 71);
+    padding: 10px 30px;
   }
 
   .button-red::after{

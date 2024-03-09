@@ -29,7 +29,7 @@ else typeList = menuList
 
   if(search !== '') categoricalList = menuList
 
-  if(categoricalList.length === 0)return <div className='h-screen w-screen'> <MenuTableOperations setSearch={setSearch} /> <div className='text-md font-semibold text-center m-[2rem]'>No data to show at the moment</div></div>
+  if(categoricalList?.length === 0)return <div className='h-screen w-screen'> <MenuTableOperations setSearch={setSearch} /> <div className='text-md font-semibold text-center m-[2rem]'>No data to show at the moment</div></div>
   return (
     <main>
     <div className="h-screen w-screen ">
