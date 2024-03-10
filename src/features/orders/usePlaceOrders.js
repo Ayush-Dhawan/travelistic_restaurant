@@ -11,7 +11,7 @@ export default function usePlaceOrders(){
     const {mutate: placeOrder, isLoading: isPlacingOrder} = useMutation({
         mutationFn: ({order_id, items, status, price, address, phoneNumber, user_id}) => placeOrderApi({order_id, items, status, price, address, phoneNumber, user_id}),
         onSuccess: () =>{
-            alert("Order Placed!")
+            // alert("Order Placed!")
             dispatch(clearCart())
         },
         onError: (err) => {throw new Error("Could not place the order :(")}

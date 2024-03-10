@@ -57,6 +57,7 @@ function NewOrder() {
     const order_id = generateOrderId();
     // console.log(user_id)
     placeOrder({order_id, items, price: totalPrice, address: enteredAddress, phoneNumber: phone, user_id})
+    alert("order placed!")
     navigate(`/order/${order_id}`)
   }
 

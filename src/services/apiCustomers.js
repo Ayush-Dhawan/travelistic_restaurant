@@ -26,6 +26,7 @@ export async function getIdbyEmail(email){
     .single();
     return Number(data.id)
 }
+
 export async function getAddressbyEmail(email){
   let { data, error } = await supabase
   .from('restaurant-users')

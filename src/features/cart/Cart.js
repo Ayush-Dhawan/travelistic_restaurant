@@ -43,7 +43,7 @@ function handleClearCart(){
        <CartOverview />
 
       <div className='mt-6 space-x-4 flex flex-col md:flex-row gap-5'>
-        <Link to='/order/new'><Button isAnimated={true} color="indigo">Order pizzas</Button></Link>
+        <Link to='/order/new'><Button isAnimated={true} color="indigo">Place Order</Button></Link>
         <Button onClick={handleClearCart} isAnimated={true} color={'gray'} >
           Clear cart
         </Button>

@@ -51,6 +51,20 @@ export async function getItemsById(order_id) {
   return data.items;
 }
 
+export async function getOrderHistoryById(id){
+  let {data, error} = await supabase
+  .from('restaurant-orders')
+  .select("*")
+  .eq('user_id', id)
+
+  if(error){
+    console.log("error occured reading orders")
+    return
+}
+  console.log(data)
+  return data;
+}
+
 
 
 
