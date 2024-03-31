@@ -20,6 +20,7 @@
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.22.2",
     "react-scripts": "5.0.1",
+    "recharts": "^2.12.3",
     "tailwind-merge": "^2.2.1",
     "use-animation-frame": "^0.1.5",
     "web-vitals": "^2.1.4"
@@ -49,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "daisyui": "^4.9.0",
     "tailwindcss": "^3.4.1"
   }
 }

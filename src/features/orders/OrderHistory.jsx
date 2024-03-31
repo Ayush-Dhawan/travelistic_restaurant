@@ -40,8 +40,8 @@ export default function OrderHistory() {
       </ul>
       <span className='p-1 rounded-lg text-slate-800' style={{
             backgroundColor: order.status === "cooking your meal" ? '#f06464' :
-                              order.status === "On the way" ? '#e4cd05' :
-                              order.status === 'Delivered' ? '#28b485' : ''
+                              order.status === "left for delivery" ? '#60a5fa' :
+                              order.status === 'delivered' ? '#34d399' : ''
           }}>{order?.status}</span>
     </div>
   </div>

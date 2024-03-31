@@ -6,6 +6,7 @@ import './MenuItems.css'
 import {useDispatch, useSelector} from 'react-redux'
 import { addItem, getCurrentQuantityById } from "../features/cart/cartSlice";
 import { DeleteItem, UpdateQuantity } from "../features/cart/Cart";
+import { useIsAdminContext } from "../contexts/IsAdminContext";
 // import MenuTableOperations from "../features/menu/MenuTableOperations";
 
 const MenuItems = ({ items, className, search, setSearch }) => {
@@ -64,6 +65,7 @@ const MenuItems = ({ items, className, search, setSearch }) => {
 
 const Card = ({ item, className, children }) => {
   const dispatch = useDispatch();
+  const {isAdmin} = useIsAdminContext();
   const currentQuantity = useSelector(getCurrentQuantityById(item?.id));
   function handleAddToCart(id, dishName, price){
     const newItem = {
@@ -86,7 +88,7 @@ const Card = ({ item, className, children }) => {
                 <CardDescription>{item?.description}</CardDescription>
                 <div className="flex items-center justify-between w-full">
                 <span className="item-text">{item.price}$</span>
-                {currentQuantity > 0 ? <UpdateQuantity id={item?.id} quantity={currentQuantity} /> : <button className=" add-to-cart p-3 rounded-md text-gray-200" onClick={() => handleAddToCart(item.id, item.dishName, item.price)}>Add to Cart</button>}
+                {!isAdmin && (currentQuantity > 0 ? <UpdateQuantity id={item?.id} quantity={currentQuantity} /> : <button className="add-to-cart p-3 rounded-md text-gray-200" onClick={() => handleAddToCart(item.id, item.dishName, item.price)}>Add to Cart</button>)}
                 </div>
               </div>
         </div>

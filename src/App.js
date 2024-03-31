@@ -14,6 +14,9 @@ import UpdateUserForm from "./features/user/updateUserForm";
 import NewOrder from "./pages/NewOrder";
 import OrderDetail from "./features/orders/OrderDetail";
 import OrderHistory from "./features/orders/OrderHistory";
+import { IsAdminContextProvider } from "./contexts/IsAdminContext";
+import Dashboard from "./pages/Dashboard";
+
 
 
 const queryClient = new QueryClient({
@@ -26,23 +29,25 @@ const queryClient = new QueryClient({
 })
 
 function App() {
-  const test = false;
   return (
     <QueryClientProvider client={queryClient}>
         <DarkModeContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />}  />
-              <Route path = '/menu' element={<Menu />}  />
-              <Route path="/signUp" element={ <SignupForm />} />
-              <Route path="/signIn" element={<SigninForm />} />
-              <Route path="/settings" element={<UpdateUserForm />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/order/new" element={<NewOrder />} />
-              <Route path="/order/:order_id" element={<OrderDetail />} />
-              <Route path="/orderHistory" element={<OrderHistory />} />
-            </Routes>
-          </BrowserRouter> 
+          <IsAdminContextProvider>
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Home />}  />
+                  <Route path = '/menu' element={<Menu />}  />
+                  <Route path="/signUp" element={ <SignupForm />} />
+                  <Route path="/signIn" element={<SigninForm />} />
+                  <Route path="/settings" element={<UpdateUserForm />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/order/new" element={<NewOrder />} />
+                  <Route path="/order/:order_id" element={<OrderDetail />} />
+                  <Route path="/orderHistory" element={<OrderHistory />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                </Routes>
+              </BrowserRouter> 
+          </IsAdminContextProvider>
         </DarkModeContextProvider>
     </QueryClientProvider>
   );

@@ -10,6 +10,7 @@ import useGetUser from '../../hooks/useGetUser';
 import { getAddressbyEmail, getNamebyEmail, getPasswordbyEmail } from '../../services/apiCustomers';
 import {useDispatch} from 'react-redux'
 import { updateUser } from '../user/userSlice';
+import { useIsAdminContext } from '../../contexts/IsAdminContext';
 
 
 // Define the SignupFormDemo component
@@ -17,6 +18,7 @@ function SigninForm() {
   // Define the submit handler function
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {checkAdminStatus} = useIsAdminContext();
   const handleSubmit = async (e) => {
    
     e.preventDefault();
@@ -34,8 +36,9 @@ function SigninForm() {
       const fullName = await getNamebyEmail(email);
       const address = await getAddressbyEmail(email);
       const isLoggedIn = true;
-      console.log(address)
+   
       dispatch((updateUser({fullName, email, address, isLoggedIn})))
+      checkAdminStatus(email);
       navigate("/menu")
     }else{
       alert("wrong credentials")

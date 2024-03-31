@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;  
 
-*{
-  background-color: var(--color-grey-900);
-}
+
 
 :root {
    &.light-mode {
@@ -23,15 +21,15 @@
   --color-grey-800: #f3f4f6;
   --color-grey-900: #f6f5f8;
 
-  --color-blue-100: #e0f2fe;
+  --color-blue-100: #34a7f3;
   --color-blue-700: #0369a1;
-  --color-green-100: #dcfce7;
+  --color-green-100: #50f58a;
   --color-green-700: #15803d;
   --color-yellow-100: #fef9c3;
   --color-yellow-700: #a16207;
   --color-silver-100: #e5e7eb;
   --color-silver-700: #374151;
-  --color-indigo-100: #e0e7ff;
+  --color-indigo-100: #7289d6;
   --color-indigo-700: #4338ca;
 
   --grid-bg-effect: #4e46e5;
@@ -111,6 +109,10 @@
   --border-radius-lg: 9px;
 
 
+}
+
+*{
+  background-color: var(--color-grey-900);
 }
 
 ::-webkit-scrollbar{

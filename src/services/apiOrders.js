@@ -36,6 +36,23 @@ export async function getOrderById(order_id) {
   return order;
 }
 
+export async function updateOrderStatusById({order_id, newStatus}) {
+  let { data: updatedOrder, error } = await supabase
+    .from('restaurant-orders')
+    .update({ status: newStatus })
+    .eq('order_id', order_id)
+    .single();
+
+  if (error) {
+    console.error(`Error updating status for order with order_id ${order_id}:`, error.message);
+    return null;
+  }
+  
+  console.log("Updated order:", updatedOrder);
+  return updatedOrder;
+}
+
+
 export async function getItemsById(order_id) {
   let { data, error } = await supabase
     .from('restaurant-orders')

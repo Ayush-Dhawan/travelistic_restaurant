@@ -1,0 +1,149 @@
+
+  
+ .stats-container {
+    display: flex; 
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 4rem; */
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    gap: 1rem;
+  }
+  
+  
+  /* Box */
+  .styled-stat {
+    background-color: var(--color-grey-900);
+    border: 1px solid var(--color-grey-700);
+    border-radius: var(--border-radius-md);
+    padding: 1.6rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 12rem;
+  }
+  
+  
+  .icon {
+    grid-row: 1 / -1;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 7rem; /* Set half the size */
+    height: 7rem; /* Set half the size */
+  }
+  
+  .icon svg {
+    width: 3.2rem;
+    height: 3.2rem;
+    color: var(--color-grey-800);
+    background-color: transparent;
+  }
+  .title {
+    align-self: end;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    color: var(--color-grey-500);
+    background: transparent;
+  }
+  .value {
+    font-size: 2.4rem;
+    line-height: 1;
+    font-weight: 500;
+    background: transparent;
+  }
+
+  .PendingOrdersWrapper{
+    height: 40vh;
+    width: 100%;
+  }
+  
+  .pieChart{
+    width: 40%;
+    height: 100%;
+    border: 1px solid var(--color-grey-700);
+    border-radius: 10px;
+    padding: 1rem;
+    /* background-color: gray; */
+  }
+
+  .pendingOrdersList{
+    width: 60%;
+    height: 100%;
+    background-color: red;
+  }
+
+
+  .StyledToday {
+    /* Box */
+    background-color: var(--color-grey-900);
+    border: 1px solid var(--color-grey-700);
+    border-radius: var(--border-radius-md);
+    padding: 3.2rem;
+    display: flex;
+    width: 70%;
+    /* height: 50%; */
+    flex-direction: column;
+    gap: 2.4rem;
+    /* grid-column: 1 / span 2; */
+    padding-top: 2.4rem;
+    overflow: scroll;
+  }
+  
+  .TodayList {
+    overflow: scroll;
+    overflow-x: hidden;
+  
+    /* Removing scrollbars for webkit, firefox, and ms, respectively */
+  }
+  
+  .TodayList::-webkit-scrollbar {
+    width: 0 !important;
+  }
+  
+  .TodayList {
+    scrollbar-width: 5px;
+    -ms-overflow-style: none;
+  }
+  
+  .NoActivity {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 0.8rem;
+  }
+
+  .StyledTodayItem {
+    display: grid;
+    grid-template-columns: 9rem 2rem 1fr 7rem 9rem;
+    gap: 1.2rem;
+    align-items: center;
+    font-size: 1.4rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--color-grey-100);
+  }
+  
+  .StyledTodayItem:first-child {
+    border-top: 1px solid var(--color-grey-100);
+  }
+  
+  .Guest {
+    font-weight: 500;
+  }
+
+  .ordersList{
+    height: 12.5rem;
+    width: 50rem;
+    margin-top: -2rem;
+    overflow-y: scroll;
+    overflow-x: visible;
+  }
+  
+  
