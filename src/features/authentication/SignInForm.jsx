@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
 import bcrypt from 'bcryptjs'
 import useGetUser from '../../hooks/useGetUser';
-import { getAddressbyEmail, getNamebyEmail, getPasswordbyEmail } from '../../services/apiCustomers';
+import { doesEmailExist, getAddressbyEmail, getNamebyEmail, getPasswordbyEmail } from '../../services/apiCustomers';
 import {useDispatch} from 'react-redux'
 import { updateUser } from '../user/userSlice';
 import { useIsAdminContext } from '../../contexts/IsAdminContext';
@@ -26,6 +26,13 @@ function SigninForm() {
 
     const email = e.target.elements.email.value;
     const EnteredPassword = e.target.elements.password.value;
+
+    const doesexist = await doesEmailExist(email);
+
+    if(!doesexist){
+      alert("Wrong  credentials");
+      return;
+    }
 
     const password = await getPasswordbyEmail(email);
 
