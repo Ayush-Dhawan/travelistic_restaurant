@@ -15,6 +15,7 @@ import { updateUser } from '../features/user/userSlice';
 import {useNavigate} from 'react-router-dom'
 import { useIsAdminContext } from '../contexts/IsAdminContext';
 import { clearCart } from '../features/cart/cartSlice';
+import SunMoon from './SunMoon';
 
 function Navbar() {
   const userStateString = localStorage.getItem("userState");
@@ -48,9 +49,10 @@ function Navbar() {
       {(isLoggedIn && !isAdmin) && <NavLink to='/cart'><BsCart3 size={'1.25em'} /></NavLink>}
       {(isLoggedIn && !isAdmin )&& <NavLink to="/settings"><MdOutlineSettings size={'1.75rem'} /></NavLink> }
       {isLoggedIn && isAdmin ? <NavLink to='/dashboard'><FaStopwatch size={'1.75rem'} /></NavLink> : <NavLink to="/orderHistory"><FaHistory size={'1.75rem'} /></NavLink>}
-      <NavLink onClick={toggleDarkMode} to="#">{isDarkMode ? <IoSunnyOutline size={'1.75rem'} /> : <BsMoon size="1.75rem" />}</NavLink>
-      {!isLoggedIn ? <NavLink to="/signUp"><RiLoginBoxLine size={'1.25em'} /></NavLink> : <span className='cursor-pointer' onClick={handleLogOut}><RiLogoutBoxLine size={'1.75rem'} /></span>}
+      {/* <NavLink onClick={toggleDarkMode} to="#">{isDarkMode ? <IoSunnyOutline size={'1.75rem'} /> : <BsMoon size="1.75rem" />}</NavLink> */}
+      <SunMoon />
       {username && <span className='text-sm text-gray-500 font-semibold hidden md:block '><span className='text-xs'>welcome</span>, <br />{username}</span> }
+      {!isLoggedIn ? <NavLink to="/signUp"><RiLoginBoxLine size={'1.25em'} /></NavLink> : <span className='cursor-pointer' onClick={handleLogOut}><RiLogoutBoxLine size={'1.75rem'} /></span>}
       </div>  
     </nav>
   )
