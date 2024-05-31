@@ -52,7 +52,7 @@ function Navbar() {
       {/* <NavLink onClick={toggleDarkMode} to="#">{isDarkMode ? <IoSunnyOutline size={'1.75rem'} /> : <BsMoon size="1.75rem" />}</NavLink> */}
       <SunMoon />
       {username && <span className='text-sm text-gray-500 font-semibold hidden md:block '><span className='text-xs'>welcome</span>, <br />{username}</span> }
-      {!isLoggedIn ? <NavLink to="/signUp"><RiLoginBoxLine size={'1.25em'} /></NavLink> : <span className='cursor-pointer' onClick={handleLogOut}><RiLogoutBoxLine size={'1.75rem'} /></span>}
+      {!isLoggedIn ? <NavLink to="/signUp"><RiLoginBoxLine size={'1.55em'} /></NavLink> : <span className='cursor-pointer' onClick={handleLogOut}><RiLogoutBoxLine size={'1.55rem'} /></span>}
       </div>  
     </nav>
   )
