@@ -45,7 +45,7 @@ function Navbar() {
                     <NavLink to={'/menu'}>Menu</NavLink>
             </div>
       </div>
-      <div className='flex gap-5'>
+      <div className='flex gap-2 sm:gap-5'>
       {(isLoggedIn && !isAdmin) && <NavLink to='/cart'><BsCart3 size={'1.25em'} /></NavLink>}
       {(isLoggedIn && !isAdmin )&& <NavLink to="/settings"><MdOutlineSettings size={'1.75rem'} /></NavLink> }
       {isLoggedIn && isAdmin ? <NavLink to='/dashboard'><FaStopwatch size={'1.75rem'} /></NavLink> : <NavLink to="/orderHistory"><FaHistory size={'1.75rem'} /></NavLink>}

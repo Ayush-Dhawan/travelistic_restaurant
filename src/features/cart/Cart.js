@@ -33,7 +33,7 @@ function handleClearCart(){
     {cart.length !== 0 ? <div className='h-screen w-screen'>
           <div className='m-2 md:m-40 w-[90%] md:w-[70%]'>
           <div className=' h-80vh  w-full '>
-    <NavLink to="/menu"><Button isAnimated={true} color="indigo">&larr; Back to menu</Button></NavLink>
+    <NavLink className={'mt-7'} to="/menu"><Button isAnimated={true} color="indigo">&larr; Back to menu</Button></NavLink>
 
       <h2 className='mt-7 text-xl font-semibold text-stone-500'>Your cart, {username}</h2>
        {cart && <ul className='divide-y divide-[#4e46e5] text-slate-500 border-b'>
@@ -42,7 +42,7 @@ function handleClearCart(){
 
        <CartOverview />
 
-      <div className='mt-6 space-x-4 flex flex-col md:flex-row gap-5'>
+      <div className='mt-6 space-x-4 flex flex-col  md:flex-row gap-5'>
         <Link to='/order/new'><Button isAnimated={true} color="indigo">Place Order</Button></Link>
         <Button onClick={handleClearCart} isAnimated={true} color={'gray'} >
           Clear cart
@@ -99,7 +99,8 @@ function CartItem({ item }) {
 }
 
 export function DeleteItem({onClick}){
-    return <Button onClick={onClick}  isAnimated={false} color={'red'}>delete</Button>
+    // return <Button onClick={onClick}  isAnimated={false} color={'red'}>delete</Button>
+    return <button onClick={onClick} className='bg-red-400 text-sm text-gray-900 font-semibold rounded-full px-4 py-2'>Delete</button>
 }
 
 

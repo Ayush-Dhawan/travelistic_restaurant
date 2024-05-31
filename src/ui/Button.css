@@ -8,6 +8,12 @@
     margin-top: 20px;
     cursor: pointer;
   }
+
+  @media(max-width: 600px){
+    .button{
+      padding: 7px 30px;
+    }
+  }
   
   .button-animated {
     animation: moveInBottom 1s ease-out 0.5s;
